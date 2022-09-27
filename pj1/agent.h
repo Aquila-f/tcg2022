@@ -208,18 +208,9 @@ public:
 	}
 
 	action greedy_tree_slider(const board& before) {
-		// int maxreward = -2;
-		// int recordop = 0;
-		// for (int op : opcode) {
-		// 	board::reward reward = board(before).slide(op);
-		// 	if(reward > maxreward){
-		// 		maxreward = reward;
-		// 		recordop = op;
-		// 	}
-		// }
+
 		expacted_reward(before, 1);
 
-		// if(maxreward != -1) return action::slide(recordop);
 		return action();
 	}
 
