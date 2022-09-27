@@ -209,51 +209,51 @@ public:
 
 	action greedy_tree_slider(const board& before) {
 
-		expacted_reward(before, 1);
+		// expacted_reward(before, 1);
 
 		return action();
 	}
 
-	int expacted_reward(const board& before, int depth){
-		if(depth < 0) return 0;
-		// std::vector<int> space = spaces[after.last()];
-		board tmpboard;
-		random_placer rp("");
-		int value = 0;
-		for(int i=0;i<4;i++){
-			tmpboard == before;
-			std::cout << tmpboard << std::endl;
-			int reward = tmpboard.slide(i);
-			if(depth > 0){
-				if(reward != -1){
-					// std::vector<int> space = spaces[i];
-					for (int pos : space) {
-						// if (tmpboard(pos) != 0) continue;
+	// int expacted_reward(const board& before, int depth){
+	// 	if(depth < 0) return 0;
+	// 	// std::vector<int> space = spaces[after.last()];
+	// 	board tmpboard;
+	// 	random_placer rp("");
+	// 	int value = 0;
+	// 	for(int i=0;i<4;i++){
+	// 		tmpboard == before;
+	// 		std::cout << tmpboard << std::endl;
+	// 		int reward = tmpboard.slide(i);
+	// 		if(depth > 0){
+	// 			if(reward != -1){
+	// 				// std::vector<int> space = spaces[i];
+	// 				for (int pos : space) {
+	// 					// if (tmpboard(pos) != 0) continue;
 
-						// int bag[3], num = 0;
-						// for (board::cell t = 1; t <= 3; t++)
-						// 	for (size_t i = 0; i < tmpboard.bag(t); i++)
-						// 		bag[num++] = t;
-						// std::shuffle(bag, bag + num, engine);
+	// 					// int bag[3], num = 0;
+	// 					// for (board::cell t = 1; t <= 3; t++)
+	// 					// 	for (size_t i = 0; i < tmpboard.bag(t); i++)
+	// 					// 		bag[num++] = t;
+	// 					// std::shuffle(bag, bag + num, engine);
 
-						// board::cell tile = tmpboard.hint() ?: bag[--num];
-						// board::cell hint = bag[--num];
+	// 					// board::cell tile = tmpboard.hint() ?: bag[--num];
+	// 					// board::cell hint = bag[--num];
 
-						// return action::place(pos, tile, hint);
-					}
-				}
-			}
+	// 					// return action::place(pos, tile, hint);
+	// 				}
+	// 			}
+	// 		}
 
 			
-			std::cout << "move :" << tmpboard.last() << std::endl;
-			std::cout << tmpboard << std::endl;
+	// 		std::cout << "move :" << tmpboard.last() << std::endl;
+	// 		std::cout << tmpboard << std::endl;
 			
-			// std::cout << tmpboard.place(0, ) << std::endl;
-			// std::cout << take_action(tmpboard) << std::endl;
-			std::cout << tmpboard << std::endl;
-			exit(0);
-		}
-	}
+	// 		// std::cout << tmpboard.place(0, ) << std::endl;
+	// 		// std::cout << take_action(tmpboard) << std::endl;
+	// 		std::cout << tmpboard << std::endl;
+	// 		exit(0);
+	// 	}
+	// }
 
 private:
 	std::array<int, 4> opcode;
