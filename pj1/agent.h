@@ -176,7 +176,7 @@ public:
 
 	virtual action take_action(const board& before) {
 		if (slider_mode == 1)
-			return greedy_slider(before);
+			return greedy_slider(before, 4);
 		else if (slider_mode == 2)
 			return greedy_tree_slider(before);
 		return random_slider(before);
@@ -191,20 +191,39 @@ public:
 		return action();
 	}
 
-	action greedy_slider(const board& before) {
-		board tmp_board = before;
+	action greedy_slider(const board& before, const int depth) {
+		
 		int maxreward = -2;
 		int recordop = 0;
+		board tmpboard;
+		
 		for (int op : opcode) {
-			board::reward reward = board(before).slide(op);
+			tmpboard = before;
+			board::reward reward = tmpboard.slide(op) + maxvalue(tmpboard, depth-1);
 			if(reward > maxreward){
 				maxreward = reward;
 				recordop = op;
 			}
 		}
 		
+		
 		if(maxreward != -1) return action::slide(recordop);
 		return action();
+	}
+
+	int maxvalue(const board& before, int depth){
+		if(depth <= 0) return 0;
+		int maxreward = -2;
+		board tmpboard;
+		for (int op : opcode) {
+			tmpboard = before;
+			if(board(before).slide(op) == -1) continue;
+			board::reward reward = tmpboard.slide(op) + maxvalue(tmpboard, depth-1);
+			if(reward > maxreward){
+				maxreward = reward;
+			}
+		}
+		return maxreward;
 	}
 
 	action greedy_tree_slider(const board& before) {
