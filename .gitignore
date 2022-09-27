@@ -3,4 +3,5 @@ threes
 .dSYM
 .ipynb
 .DS_Store
-threes.dSYM
+threes.dSYM/
+
